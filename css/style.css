@@ -1,0 +1,158 @@
+/* Colores
+    primary - #0277bd
+    light primary - #58a5f0
+    dark primary - #004c8c
+    secundary - #4fc2f7
+    light secundary - #8bf5ff
+    dark secundary - #0092c4
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    background-color: #004c8c;
+    color: whitesmoke;
+    position: fixed;
+    top: 0px;
+    box-shadow: 0px 0px 8px 0px black;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+#inicio {
+    flex: auto;
+    font-size: x-large;
+    padding: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    color: gainsboro;
+}
+
+#inicio:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.hamburger {
+    background-color: #004c8c;
+    color: whitesmoke;
+    border: none;
+    padding: 15px;
+}
+
+.hamburger span {
+    font-size: xx-large;
+}
+
+.hamburger:hover {
+    color: white;
+}
+
+header form {
+    display: flex;
+}
+
+#search {
+    margin-right: 10px;
+}
+
+#search input {
+    padding: 10px;
+}
+
+#search button {
+    background-color: #004c8c;
+    color: whitesmoke;
+    border: none;
+}
+
+#search button:hover {
+    color: white;
+    background-color: #0371b1;
+}
+
+#search span {
+    font-size: x-large;
+    padding: 5px;
+}
+
+nav {
+    margin-top: 65px;
+}
+
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 15px;
+    font-weight: 600;
+}
+
+nav a:hover{
+    background-color: #3b8fc0;
+    color: black;
+}
+
+footer .container {
+    padding: 20px;
+    text-align: center;
+    bottom: 0px;
+    border-top: 1px solid gainsboro;
+}
+
+#menu {
+    background-color: #0371b1;
+}
+
+@media screen and (max-width: 800px) {
+    #menu {
+        display: none;
+        position: fixed;
+        top: 0px;
+        box-shadow: 0 0 5px 0 black;
+    }
+    #menu .container{
+        width: 275px;
+        display: flex;
+        flex-direction: column;
+    }
+    #menu a{
+        padding: 15px;
+    }
+
+    main {
+        margin-top: 65px;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    #menu .container {
+        display: flex;
+        align-items: center;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    nav {
+        margin-top: 58px;
+    }
+    .hamburger {
+        display: none;
+    }
+    .container {
+        width: 80%;
+    }
+}
