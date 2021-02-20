@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica Accesiblidad</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <button class="hamburger" onclick="openNav()">
+                <span class="material-icons">menu</span>
+            </button>
+            <a href="" id="inicio">Inicio</a>
+            <div id="search" class="right">
+                <form>
+                    <input type="text" placeholder="Search..."></input>
+                    <button>
+                        <span class="material-icons">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <nav id="menu">
+        <div class="container">
+            <a href="" class="item">Conceptos Básicos</a>
+            <a href="" class="item">Diversidad de Usuarios</a>
+            <a href="" class="item">Puntos Clave</a>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <article>
+                <h1>Conceptos Básicos</h1>
+                <p>Cuando decimos que un sitio es accesible, queremos decir que el contenido del sitio está disponible,
+                    y que su funcionalidad puede ser usada por cualquiera</p>
+                <p>Accesiblidad, se refiere a la experiencia de los usuarios que pueden estar fuera del rango "típico"
+                    de usuario, que pueden acceder o interactuar con las cosas diferentemente que el resto.
+                    Específicamente, esto concierne a usuarios que experimentan algún tipo de discapacidad o
+                    impedimento.</p>
+                <p><a href="https://www.w3.org/TR/WCAG20/">Web Contnet Accesibillity Guidelnies (WCAG)</a> establece una
+                    guía de mejores prácticas por expertos en accesiblidad. WCAG está organizada en torno a cuatro
+                    principios fundamentales:</p>
+                <ul>
+                    <li><b>Perceptible.</b> El que algo sea perceptible con un sentido, no significa que todos los
+                        usuarios lo puedan percibir.</li>
+                    <li><b>Manejable.</b> ¿Pueden todos los usuarios usar los componentes de la interfaz y navigar por
+                        el contenido? Por ejemplo, algo puede requerir pasar por encima de un elemento para activar un
+                        evento, lo cuál no lo puede hacer alguien que no puede usar el ratón o no ve.</li>
+                    <li><b>Comprensible.</b> ¿Pueden los usuarios comprender la interfaz?</li>
+                    <li><b>Sólido.</b> ¿El contenido funciona en diferentes navegadores? ¿Funciona on tecnología
+                        asistencial?</li>
+                </ul>
+            </article>
+            <article>
+                <h1>Diversidad de Usuarios</h1>
+                <p>Cuando aprendemos sobre accesibilidad, ayuda tener una comprensión de la diversidad de usuarios que
+                    existen y los temas de accesibilidad que les afectan</p>
+                <h2>Discapacidad visual</h2>
+                <p>Hoy en día es inusual encontrarnos con una persona que no pueda ver por completo, aun así, hay gran
+                    cantidad de usuarios que ven borroso o tienen poca visibilidad. Tanto para unos como otros, existen
+                    diferentes herramientas que los ayudar a navegar:</p>
+                <ul>
+                    <li><b>Lector de pantalla.</b> Literalmente, lee el contenido de la pantalla.</li>
+                    <li><b>Lector braille.</b> Muestra la información del sitio web en braille.</li>
+                    <li><b>Texto a voz.</b> Transforma el texto a voz para poderlo oír.</li>
+                    <li><b>Lupa.</b> Aumenta el tamño de una parte de la pantalla.</li>
+                    <li><b>Zoom del buscador.</b> Aumenta el tamaño de las fuentes.</li>
+                    <li><b>Modo de contraste alto.</b> Como su nombre indica.</li>
+                </ul>
+                <h2>Discapacidad motriz</h2>
+                <p>El rango de este grupo abarca desde aquellos que prefieren no usar el ratón, porque tienen algún tipo
+                    de RSI (Repetitive Strain Injury) y lo encuentran doloroso, a alguien que presenta algún tipo de
+                    parálisis y tienen limitada la mobilidad de ciertas partes de su cuerpo.</p>
+                <p>Estos usuarios pueden utilizar un teclado, un switch device, control por voz o un dispositivo de
+                    eye-tracking para interactuar con el ordenador.</p>
+                <h2>Discapacidad auditiva</h2>
+                <p>Este grupo de usuarios abarca desde aquellos que están sordos por completo a los que tienen
+                    dificultades para oír. Y al igual que nuestra visión, nuestro oído tiende a deteriorarse con la
+                    edad.</p>
+                <p>Para usuarios con discapacidades auditivas necesitamos estar seguros de no apoyarnos en el sonido,
+                    por lo que tendremos que subtitular o hacer transcripciones, y así, proveer una alternativa si el
+                    sonido es parte de la interfaz.</p>
+                <h2>Discapacidad cognitiva</h2>
+                <p>Hay una gran variedad de discapacidades cognitivas como ADD, dislexia o autismo, que obligan a los
+                    usuarios a acceder a las cosas de forma diferente. Las adaptaciones para este grupo son muy
+                    diversas, pero podemos encontrar alguna forma que encaje con las otras áreas, cómo usar el Zoom para
+                    leer y concentrarse mejor. También, para estos usuarios, cuánto más minimalista sea el diseño,
+                    funcionará mejor con ellos, disminuyendo las posibles distracciones.</p>
+            </article>
+            <article>
+                <h1>Puntos Clave</h1>
+                <h2>Foco</h2>
+                <p>El foco determinada donde apunta los eventos de teclado en la página en cualquier momento.</p>
+                <p>Algunos usuarios trabajan con sus ordenadores por completo con el teclado o algún otro tipo de
+                    dispositivo. Para estos usuarios, el foco es crucial; es su principal forma de buscar cualquier cosa
+                    en la pantalla. Por esta razón, en la <a
+                        href="https://webaim.org/standards/wcag/checklist#sc2.1.1">sección 2.1.1 de Web AIM</a> explica
+                    que toda funcionalidad debería de estar disponible a través de teclado, a no ser que sea algo que no
+                    se pueda hacer con el teclado, como dibujar.</p>
+                <p>Como usuario, puedes controlar que elemento se encuentra con el foco usando Tab, Shift+Tab o las
+                    flechas de dirección.</p>
+                <p>Los elementos HTML interactivo como campos de texto, botnoes, listas de selección son implícitamente
+                    enfocables.</p>
+                <p>Pero no todos los elementos son enfocables; párrafos, divs, y otros tantos elementos de una página no
+                    son enfocables según tabulas a través de la página.</p>
+                <h3>El orden de DOM importa</h3>
+                <p>Por ejemplo, puedes tener tres botones, uno detrás de otro en el DOM. Al presionar Tab, se enfoca en
+                    cada botón por orden.</p>
+                <p>Sin embargo, es importante destacar, que al usar CSS, es posible tener cosas que existen con un
+                    cierto orden en el DOM, pero que aparecen de forma diferente en la pantalla. Por ejemplo, si usamos
+                    en uno de los botones la propiedad float para mover el botón a la derecha, el orden de tabulación
+                    cambia.</p>
+                <h4>Contenido fuera de pantalla</h4>
+                <p>Cuando tenemos elementos fuera de la pantalla, como una barra de navegación responsive, siguen
+                    cogiendo el foco a la hora de tabular. Para evitar esto, tendremos que aplicarles la propiedad
+                    display: none o visibility: hidden, a través de javascript, al momento de ocultarlos; y display:
+                    block o visibility: visible, a la hora de mostrarlo.</p>
+                <h3>Uso de tabindex</h3>
+                <p>Para especificar la posición de un elemento al tabular, podemos usar tabindex.</p>
+                <ul>
+                    <li><b>tabindex="0":</b> Inserta un elemento en el orden natural de tabulación. El elemento puede
+                        ser enfocado presionando la tecla Tab, o también llamando al método focus().</li>
+                    <li><b>tabindex="-1":</b> Quita el elemento del orden natural de tabulación, aunque sigue pudiendo
+                        ser enfocado a través del método focus().</li>
+                    <li><b>tabindex="5":</b> Cualquier tabindex superior a 0, hace que salte al frente el orden natural
+                        de tabulación. Si hay varios elementos de está forma, se ordenan empezando por el valor inferior
+                        que sea superior a 0. Usar un tabindex superior a 0, se considera un <b>antipatrón</b>.</li>
+                </ul>
+                <p>Lo mejor, es seguir el orden natural del DOM, si usamos tabindex, habrá que restringirlo sólo a
+                    controles interactivos personalizados como botones, pestañas, menús desplegables y campos de texto;
+                    es decir, aquellos elementos en los que el usuario podría realizar entradas.</p>
+                <p>Hay un escenario en el que el tabindex no es sólo útil, sino necesario. Si quieres construir una
+                    página única robusta con diferentes secciones, sin estar visibles simultáneamente. En este tipo de
+                    páginas, clickando en un link de navegación puede cambiar la visibilidad del contenido sin refrescar
+                    la página.</p>
+                <p>Cuando esto ocurre, lo suyo sería dar un tabindex de -1 a aquellas secciones ocultas, para evitar que
+                    aparezcan en el orden natural de tabulación, y llamar a su método focus(). Esta técnica, llamada
+                    <i>administración del foco</i>, mantiene el contenido que percibe el suario con el contenido visual
+                    del sitio.</p>
+                <p>A la hora de desarrollar elementos personalizados, como un conjunto de botones de selección, el
+                    tabindex itinerante funcioan configurando tabindex en -1 para todos los elementos secundarios
+                    excepto el que se encuentra activo.</p>
+                <p>Después, el componente utiliza un recepto de eventos por teclado para determinar que tecla presiona
+                    el usuario. Esto hace que el elemento que se encontraba seleccionado, pase a tener un tabindex de
+                    -1, y pone un tabindex a 0 del que selecciona.</p>
+                <p>A veces, cuando administramos el foco, nos podemos presentar ante una situación en la que no podamos
+                    salir. Esto se llama una <i>trampa de teclado</i>.</p>
+                <p>A veces, esto nos puede interesar, como en el uso de ventanas modales. Normalmente, cuando el modal
+                    se despliega, no queremos que el usuario pueda acceder al contenido detrás de él.</p>
+                <p>En situaciones como estas, podemos diseñar una trampa de teclado temporal para asegurarnos de que el
+                    foco sólo pueda acceder al modal desplegado, y después recuperar el foco del item enfocado
+                    anteriormente al cerrar el modal.</p>
+                <h2>Semántica</h2>
+                <h3>Tecnología asistencial</h3>
+                <p>La tecnología asistencial es un término amplio para dispositivos, software y herramientas que ayudan a cualquier persona con discapacidad a completar una tarea.</p>
+                <p>Las personas pueden interactuar con el sitio web usando un lector de pantalla, una lupa, a través de control de voz, etc., de forma que se adapte a la interfaz predeterminada de la página web para crear una interfaz más específica que puedan usar.</p>
+                <h3>El árbol de accesibilidad</h3>
+                <p>El navegador necesita traducir la app web en un árbol de accesibilidad, y tiene que asegurarse de se activen los eventos apropiados en JavaScrip según las acciones del usuario que viene de la tecnología asistencial.</p>
+                <p>Pero todo esto es responsabilidad del buscador. Nuestro trabajo como desarrollador web es estar al tanto de que esto sucede y desarrollar páginas web que aprovechen este proceso para crear una experiencia accesible para nuestros usuarios.</p>
+                <p>Nos tenemos que asegurar de que los elementos importantes de la página tengan los estados, propiedades y roles accesibles correctos, y que especifiquen nombres y descripciones accesibles.</p>
+                <h4>Semánticas en HTML nativo</h4>
+                <p>El buscador</p>
+                <h3>Texto alternativo para imágenes</h3>
+                <h3>Navegación por el contenido</h3>
+                <h2>Estilos (ARIA)</h2>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div>Carlos Palacis Alonso - 2º DAW</div>
+        </div>
+    </footer>
+</body>
+
+</html>
