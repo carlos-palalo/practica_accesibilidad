@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -7,36 +7,32 @@
     <title>Práctica Accesiblidad</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-3.5.1.js"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <button class="hamburger" onclick="openNav()">
+            <button class="hamburger" onclick="toggleNav(this)" aria-label="menu" tabindex="-1">
                 <span class="material-icons">menu</span>
             </button>
-            <a href="" id="inicio">Inicio</a>
-            <div id="search" class="right">
-                <form>
-                    <input type="text" placeholder="Search..."></input>
-                    <button>
-                        <span class="material-icons">search</span>
-                    </button>
-                </form>
-            </div>
+            <a href="#" id="inicio">Inicio</a>
+            <nav id="menu" role="tablist" class="desplazar">
+                <button class="conceptos" role="tab">Conceptos</button>
+                <button class="usuarios" role="tab">Usuarios</button>
+                <button class="puntos" role="tab">Puntos Clave</button>
+                <button class="ejemplos" role="tab">Ejemplos</button>
+                <button class="testeo" role="tab">Testeo</button>
+                <button class="herramientas" role="tab">Herramientas</button>
+            </nav>
         </div>
+
     </header>
-    <nav id="menu">
-        <div class="container">
-            <a href="" class="item">Conceptos Básicos</a>
-            <a href="" class="item">Diversidad de Usuarios</a>
-            <a href="" class="item">Puntos Clave</a>
-        </div>
-    </nav>
+
     <main>
         <div class="container">
-            <article>
+            <article id="conceptos">
                 <h1>Conceptos Básicos</h1>
                 <p>Cuando decimos que un sitio es accesible, queremos decir que el contenido del sitio está disponible,
                     y que su funcionalidad puede ser usada por cualquiera</p>
@@ -58,7 +54,7 @@
                         asistencial?</li>
                 </ul>
             </article>
-            <article>
+            <article id="usuarios">
                 <h1>Diversidad de Usuarios</h1>
                 <p>Cuando aprendemos sobre accesibilidad, ayuda tener una comprensión de la diversidad de usuarios que
                     existen y los temas de accesibilidad que les afectan</p>
@@ -94,7 +90,7 @@
                     leer y concentrarse mejor. También, para estos usuarios, cuánto más minimalista sea el diseño,
                     funcionará mejor con ellos, disminuyendo las posibles distracciones.</p>
             </article>
-            <article>
+            <article id="puntos">
                 <h1>Puntos Clave</h1>
                 <h2>Foco</h2>
                 <p>El foco determinada donde apunta los eventos de teclado en la página en cualquier momento.</p>
@@ -104,8 +100,9 @@
                         href="https://webaim.org/standards/wcag/checklist#sc2.1.1">sección 2.1.1 de Web AIM</a> explica
                     que toda funcionalidad debería de estar disponible a través de teclado, a no ser que sea algo que no
                     se pueda hacer con el teclado, como dibujar.</p>
-                <p>Como usuario, puedes controlar que elemento se encuentra con el foco usando Tab, Shift+Tab o las
-                    flechas de dirección.</p>
+                <p>Como usuario, puedes controlar que elemento se encuentra con el foco usando <i>Tab</i>,
+                    <i>Shift+Tab</i> o las
+                    <i>flechas de dirección</i>.</p>
                 <p>Los elementos HTML interactivo como campos de texto, botnoes, listas de selección son implícitamente
                     enfocables.</p>
                 <p>Pero no todos los elementos son enfocables; párrafos, divs, y otros tantos elementos de una página no
@@ -145,7 +142,7 @@
                     <i>administración del foco</i>, mantiene el contenido que percibe el suario con el contenido visual
                     del sitio.</p>
                 <p>A la hora de desarrollar elementos personalizados, como un conjunto de botones de selección, el
-                    tabindex itinerante funcioan configurando tabindex en -1 para todos los elementos secundarios
+                    tabindex itinerante funciona configurando tabindex en -1 para todos los elementos secundarios
                     excepto el que se encuentra activo.</p>
                 <p>Después, el componente utiliza un recepto de eventos por teclado para determinar que tecla presiona
                     el usuario. Esto hace que el elemento que se encontraba seleccionado, pase a tener un tabindex de
@@ -159,23 +156,215 @@
                     anteriormente al cerrar el modal.</p>
                 <h2>Semántica</h2>
                 <h3>Tecnología asistencial</h3>
-                <p>La tecnología asistencial es un término amplio para dispositivos, software y herramientas que ayudan a cualquier persona con discapacidad a completar una tarea.</p>
-                <p>Las personas pueden interactuar con el sitio web usando un lector de pantalla, una lupa, a través de control de voz, etc., de forma que se adapte a la interfaz predeterminada de la página web para crear una interfaz más específica que puedan usar.</p>
+                <p>La tecnología asistencial es un término amplio para dispositivos, software y herramientas que ayudan
+                    a cualquier persona con discapacidad a completar una tarea.</p>
+                <p>Las personas pueden interactuar con el sitio web usando un lector de pantalla, una lupa, a través de
+                    control de voz, etc., de forma que se adapte a la interfaz predeterminada de la página web para
+                    crear una interfaz más específica que puedan usar.</p>
                 <h3>El árbol de accesibilidad</h3>
-                <p>El navegador necesita traducir la app web en un árbol de accesibilidad, y tiene que asegurarse de se activen los eventos apropiados en JavaScrip según las acciones del usuario que viene de la tecnología asistencial.</p>
-                <p>Pero todo esto es responsabilidad del buscador. Nuestro trabajo como desarrollador web es estar al tanto de que esto sucede y desarrollar páginas web que aprovechen este proceso para crear una experiencia accesible para nuestros usuarios.</p>
-                <p>Nos tenemos que asegurar de que los elementos importantes de la página tengan los estados, propiedades y roles accesibles correctos, y que especifiquen nombres y descripciones accesibles.</p>
+                <p>El navegador necesita traducir la app web en un árbol de accesibilidad, y tiene que asegurarse de se
+                    activen los eventos apropiados en JavaScrip según las acciones del usuario que viene de la
+                    tecnología asistencial.</p>
+                <p>Pero todo esto es responsabilidad del buscador. Nuestro trabajo como desarrollador web es estar al
+                    tanto de que esto sucede y desarrollar páginas web que aprovechen este proceso para crear una
+                    experiencia accesible para nuestros usuarios.</p>
+                <p>Nos tenemos que asegurar de que los elementos importantes de la página tengan los estados,
+                    propiedades y roles accesibles correctos, y que especifiquen nombres y descripciones accesibles.</p>
                 <h4>Semánticas en HTML nativo</h4>
-                <p>El buscador</p>
+                <p>El DOM usa elementos nativos de HTML que son reconocidos por los buscadores y funcionan en una gran
+                    variedad de plataformas. La accesibilidad para elementos nativos de HTML como links o botones es
+                    manejada automáticamente.</p>
+                <p>Sin embargo, a veces usamos elementos que se ven como elementos nativos, pero no lo son. Por ejemplo,
+                    un "botón" que está hecho con div.</p>
+                <p>Cuando no usamos un botón del HTML nativo, el lector de pantalla no tiene ninguna forma de
+                    controlarlo. También, tendremos que hacer un trabajo extra al añadir tabindex para hacerlo usable
+                    por los usuarios que solo usan un teclado.</p>
+                <p>Podemos solucionar esto fácilmente usando solo un botón normal en vez de un div. Sin embargo, para
+                    elementos de entrada o de control, y contenido visual como imágenes, tenemos que especificar un
+                    nombre. De hecho, proveer de texto alternativo para cualquier contenido sin texto es <a
+                        href="https://webaim.org/standards/wcag/checklist#g1.1">uno de los primeros artículos en
+                        WebAIM</a></p>
+                <p>Por ejemplo, con un checkbox, lo suyo sería asociarle un label con for.</p>
                 <h3>Texto alternativo para imágenes</h3>
+                <p>Las imágenes son un componente importante de la mayoría de págians, y son un problema para los
+                    usuarios con visión reducida. Por ello, tenemos que considerar el rol que juega una imagen en la
+                    página para saber el texto alternativo que debería tener.</p>
+                <p>Otra cosa a tener en cuenta, es que si tenemos una imagen, por ejemplo, en una caja de búsqueda,
+                    tendremos que dejar el alt vacío, porque sería redudante poner "Search" al tenerlo ya en la propia
+                    caja de búsqueda.</p>
                 <h3>Navegación por el contenido</h3>
+                <p>En páginas grandes es un inconveniente tener que ir elemento por elemento de arriba abajo con el
+                    lector de pantalla, para evitar esto, se utilizan headers ocultos, os cuales les hacemos accesibles
+                    sólo para screen readers y otras tecnologías asistenciales.</p>
+                <p>Otra manera, el rotor del lector de pantalla (una menera fácil de aislar y escanear una lista de
+                    títulos de una página) para acceder auna lista de links en la página.</p>
+                <p>Por ejemplo, algunos ejemplos que hace a los links difícil de encontrar: </p>
+                <ul>
+                    <li><b>Enlaces sin el atributo href definido.</b> Al usar aplicaciones de una única página, estos
+                        vínculos pueden causar problemas al lector de pantalla.</li>
+                    <li><b>Botones implementados con vínculos.</b> Esto hace que el lector de pantalla lo interprete
+                        como contenido de un link, por lo que la funcionalidad del botón se pierde.</li>
+                    <li><b>Imágenes usadas como contenido de los enlaces.</b> </li>
+                </ul>
+                <p>HTML5 introduce algunos nuevos elementos que ayduan a definir la semántica de la estructura de la
+                    página, incluyendo heaer, footer, nav, article, section, main y asie.</p>
+                <p>Los elementos semánticos reemplazan bloques divs repetitivos, y proveen una manera más clara y
+                    descriptiva de expresar la página tanto para autores como lectores.</p>
                 <h2>Estilos (ARIA)</h2>
+                <p>Lo mejor es usar los elementos HTML nativo porque te dan el foco, el soporte de teclado, etc.; pero,
+                    a veces, no hay plantilla simple o nativa de HTML, como en un menú pop-up. Para estas situaciones,
+                    tendremos que utilizar la colección de ARIA.</p>
+                <h3>¿Qué puede hacer ARIA?</h3>
+                <p><b>ARIA</b> puede añadir un label extra y una descripción que solo se expone a las APIs de tecnología
+                    asistencial.</p>
+                <p>ARIA puede expresar las relaciones semánticas entre elementos que extienden la conexión estándar de
+                    padre/hijo, como una barra de desplazamiento personalizada que controla una región específica.</p>
+                <p>ARIA puede hacer partes de las páginas <i>"vivas"</i>, para que inmediatamente informe a la
+                    tecnología
+                    asistencial cuando cambia.</p>
+                <p>Uno de los aspectos principales del sistema ARIA es su colección de roles. Un rol es un término de
+                    accesibilidad que indica un patrón particular de IU. ARIA provee un vocabulario de patrones que
+                    podemos usar a través del atributo rol en cualquier elemento HTML.</p>
+                <p>De hecho, debido a las interaciones de teclado que aparecen de manera recurrente en con el uso de
+                    lectores de pantalla, es muy importante hacer, cuando creamos un widget personalizado, que el rol
+                    esté siempre aplicado en el mismo lugar que el tabindex. Esto asegura que el evento de teclado va al
+                    sitio correcto y que cuando el foco reposa en un elemento, su rol se logra de forma precisa.</p>
+                <h3>Etiquetas y relaciones de ARIA</h3>
+                <p>ARIA provee una serie de mecanismo que añaden labels y descripciones a elementos. De hehco, ARIA es
+                    la única manera de agregar ayuda accesible o descripciones de texto.</p>
+                <p><b>aria-label</b> nos permite especificar una frase como un label accesible. Esto, sobreescribe
+                    cualquier otro mecanismo de etiquetado nativo, como un elemento label.</p>
+                <p><b>aria-labelledby</b> nos pemrite especificar el ID de otro elemento en el DOM como un elemento
+                    label.</p>
+                <p>Una cosa importante es que si tenemos un aria-labelledby y un aria-label, o un aria-labelledby y un
+                    elemento nativo HTML label, el aria-labelledby siempre tiene preferencia.</p>
+                <h4>Relaciones</h4>
+                <ul>
+                    <li><b>aria-owns</b> es una de las relaciones de ARIA más usadas. Este atributo nos permite decir a
+                        la tecnología asistencial que un elemento que está separado del DOM, debería de ser tratdo como
+                        un hijo del elemento actual, o de reorganizar elementos hijos ya existentes en un diferente
+                        orden.</li>
+                    <li><b>aria-activedescendant</b> al igual que un elemento activo de una página es el que tiene el
+                        foco, al configurar un descendiente activo de un elemento, nos permite decir a la tecnología
+                        asistencial que un elemento debería de presentarse al suario como el elemento en foco cuando su
+                        padre es el que consigue el foco.</li>
+                    <li><b>aria-describedby</b> provee una descripción accesible de la misma menra que aria-labelledby
+                        provee un label. aria-describedby puede hacer referencia a elementos que de otra forma no son
+                        visibles, ya sea que estén ocultos del DOM u ocultos de los usuarios con tecnología asistencial.
+                    </li>
+                </ul>
+                <h3>Como ocultar y actualizar contenido</h3>
+                <p>ARIA provee un mecanismo para excluir contenido de la tecnología asistencial que no está oculto
+                    visualmente, usando el atributo <b>aria-hidden</b>. Aplicar este atributo a un elemento hace que
+                    tanto él como sus descendientes se quiten del árbol de accesibilidad. La única excepción son los
+                    elementos referidos por un aria-labelledby o aria-describedby.</p>
+                <p><b>aria-live</b> permite a los desarrolladores marcar una zona de la página como "viva" en el sentido
+                    de que las actualizaciones deberían ser comunicadas al usuario inmediatamente, sin importar la
+                    posición en la página, en lugar de si sólo se enteran si exploran está parte de la página. aria-live
+                    tiene tres valores permitidos:</p>
+                <ul>
+                    <li><b>aria-live="polite"</b> le dice a la tecnología asistencial que alerte al usuario sobre este
+                        cambio cuando termina lo que está haciendo.</li>
+                    <li><b>aria-live="assertive"</b> le dice a la tecnología asistencial que interrumpa lo que está
+                        haciendo y alerte al usuario sobre este cambio de inmediato.</li>
+                    <li><b>aria-live="off"</b> le dice a la tecnología asistencial que suspenda temporalmente las
+                        interrupciones del aria-live.</li>
+                </ul>
+                <p><b>aria-atomic</b> indica si toda la región se debería considerar una totalidad cuando se comunican
+                    actualizaciones. Por ejemplo, si actualizo una parte de un widget, se volverá leer todo el contenido
+                    del widget.</p>
+                <p><b>aria-relevant</b> indica qué tipos de cambios se le deberían presentar al usuario (additions,
+                    text, removals, all).</p>
+            </article>
+            <article id="ejemplos">
+                <h1>Ejemplos</h1>
+                <form>
+                    <p>
+                        <label for="nombre">Nombre: </label>
+                        <input id="nombre" name="nombre" type="text" required>
+                    </p>
+                    <p>
+                        <label for="apellidos">Apellidos: </label>
+                        <input id="apellidos" name="apellidos" type="text" required>
+                    </p>
+                    <p>
+                        <label for="pw">Contraseña</label>
+                        <input type="password" id="pw" aria-describedby="pw-help"
+                            placeholder="La contraseña debe tener al menos 6 carácteres">
+                    <div id="pw-help">La contraseña debe tener al menos 6 carácteres</div>
+                    </p>
+                    <p>
+                        <label for="nacimiento">Fecha de nacimiento:</label>
+                        <input type="date" id="nacimiento" name="nacimiento">
+                    </p>
+                    <p>
+                        <label for="genero">Género:</label>
+                        <select name="genero" id="genero">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="notificar">¿Recibir notificaciones?</label>
+                        <input type="checkbox" id="notificar" name="notificar">
+                    </p>
+                    <div class="botones">
+                        <input type="submit" value="Enviar">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+                <img src="img/fox.jpg" alt="Esta es la imagen de un zorro en la nieve">
+                <div id="botones">
+                    <!-- Prueba del tabindex -->
+                    <button>Primer botón</button>
+                    <button>Segundo botón</button>
+                    <button tabindex="5">Último botón</button>
+                </div>
+                <div role="menu" id="desplegable">
+                    <div role="menuitem" aria-haspopup="true" id="menu1" tabindex="0">Menu 1</div>
+                    <div aria-owns="submenu1"></div>
+                    <div role="menu" id="submenu1">
+                        <div role="menuitem" tabindex="0">Submenu 1 - Item 1</div>
+                        <div role="menuitem" tabindex="0">Submenu 1 - Item 2</div>
+                        <div role="menuitem" tabindex="0">Submenu 1 - Item 3</div>
+                        <div role="menuitem" tabindex="0">Submenu 1 - Item 4</div>
+                    </div>
+                    <div role="menuitem" aria-haspopup="true" id="menu2" tabindex="0">Menu 2</div>
+                    <div aria-owns="submenu2"></div>
+                    <div role="menu" id="submenu2">
+                        <div role="menuitem" tabindex="0">Submenu 2 - Item 1</div>
+                        <div role="menuitem" tabindex="0">Submenu 2 - Item 2</div>
+                        <div role="menuitem" tabindex="0">Submenu 2 - Item 3</div>
+                        <div role="menuitem" tabindex="0">Submenu 2 - Item 4</div>
+                    </div>
+                    <div role="menuitem" aria-haspopup="true" id="menu3" tabindex="0">Menu 3</div>
+                    <div aria-owns="submenu3"></div>
+                    <div role="menu" id="submenu3">
+                        <div role="menuitem" tabindex="0">Submenu 3 - Item 1</div>
+                        <div role="menuitem" tabindex="0">Submenu 3 - Item 2</div>
+                        <div role="menuitem" tabindex="0">Submenu 3 - Item 3</div>
+                        <div role="menuitem" tabindex="0">Submenu 3 - Item 4</div>
+                    </div>
+                </div>
+            </article>
+            <article id="testeo">
+                <h1>Testeo y evaluación de la página</h1>
+                <h2 id="test_lighthouse">Test de accesibilidad de Lighthouse</h2>
+                <img src="img/test_accesibilidad_lighthouse.png" aria-describedby="test_lighthouse" alt="">
+                <h2 id="test_wave">Test de accesibilidad de WAVE</h2>
+                <img class="vertical" src="img/test_accesibilidad_WAVE.png" alt="" aria-describedby="test_wave">
+                <h2 id="test_aria">Test de ARIA de ARIA Validator</h2>
+                <img class="vertical" src="img/test_aria.png" alt="" aria-describedby="test_aria">
+            </article>
+            <article id="herramientas">
+                <h1>Herramientas de testeo y evaluación</h1>
+                <p>He elegio Lighthouse, WAVE y ARIA Validator de todos los plugins y/o validadores que he encontrado puesto que me han sido los más fáciles de usar, sin tener que registrame/loguearme y más intuitivos, a la par que ofrecen bastante información de los errores o warnings.</p>
             </article>
         </div>
     </main>
     <footer>
         <div class="container">
-            <div>Carlos Palacis Alonso - 2º DAW</div>
+            <p>Carlos Palacis Alonso - 2º DAW</p>
         </div>
     </footer>
 </body>

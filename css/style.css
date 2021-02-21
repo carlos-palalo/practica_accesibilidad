@@ -8,10 +8,23 @@
 */
 
 * {
-    margin: 0px;
-    padding: 0px;
     font-family: "Roboto", sans-serif;
     transition: background-color 0.5s, color 0.5s;
+}
+
+img {
+    width: 100%;
+    max-width: 700px;
+}
+
+#testeo{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.vertical{
+    max-width: 350px;
 }
 
 header {
@@ -29,7 +42,19 @@ header .container {
 }
 
 body {
-    background-color: whitesmoke;
+    margin: 0px;
+    padding: 0px;
+    background-color: gainsboro;
+}
+
+#menu {
+    background-color: #004c8c;
+    display: flex;
+    margin-right: 20px;
+}
+
+#pw-help {
+    display: none;
 }
 
 #inicio {
@@ -41,14 +66,14 @@ body {
     color: gainsboro;
 }
 
-#inicio:hover {
+#inicio:hover, #inicio:focus {
     color: white;
     font-weight: bold;
 }
 
 .hamburger {
     background-color: #004c8c;
-    color: whitesmoke;
+    color: gainsboro;
     border: none;
     padding: 15px;
 }
@@ -57,102 +82,239 @@ body {
     font-size: xx-large;
 }
 
-.hamburger:hover {
+.hamburger:hover, .hamburger:focus {
     color: white;
 }
 
-header form {
-    display: flex;
-}
-
-#search {
-    margin-right: 10px;
-}
-
-#search input {
-    padding: 10px;
-}
-
-#search button {
+nav button {
     background-color: #004c8c;
     color: whitesmoke;
-    border: none;
-}
-
-#search button:hover {
-    color: white;
-    background-color: #0371b1;
-}
-
-#search span {
-    font-size: x-large;
-    padding: 5px;
-}
-
-nav {
-    margin-top: 65px;
-}
-
-nav a {
-    text-decoration: none;
-    color: whitesmoke;
-    padding: 15px;
+    padding: 22px 15px;
     font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
-nav a:hover{
+nav button:hover, nav button:focus {
     background-color: #3b8fc0;
     color: black;
 }
 
-footer .container {
-    padding: 20px;
-    text-align: center;
-    bottom: 0px;
-    border-top: 1px solid gainsboro;
+#usuarios, #puntos, #ejemplos, #testeo, #herramientas {
+    display: none;
 }
 
-#menu {
-    background-color: #0371b1;
+main {
+    background-color: gainsboro;
+}
+
+main .container {
+    background-color: white;
+    padding: 40px 0px;
+    margin-bottom: 0px;
+    box-shadow: 0px 0px 5px 0px rgb(161, 161, 161);
+}
+
+main article {
+    padding: 0px 80px;
+    margin-bottom: 20px;
+}
+
+main a {
+    text-decoration: none;
+}
+
+main b, i {
+    background-color: rgb(231, 231, 231);
+}
+
+article h1 {
+    font-size: xx-large;
+    margin-bottom: 10px;
+    /*margin-top: 40px*/
+}
+
+article h2 {
+    font-size: x-large;
+    margin-bottom: 8px;
+}
+
+article h3 {
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+article p {
+    margin: 10px 0px;
+}
+
+article li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: gainsboro;
+}
+
+footer .container {
+    font-style: italic;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 2px 3px 0px rgb(161, 161, 161);
+}
+
+footer p {
+    border-top: 1px groove gainsboro;
+    width: 400px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
 @media screen and (max-width: 800px) {
     #menu {
-        display: none;
+        background-color: #00569c;
         position: fixed;
-        top: 0px;
-        box-shadow: 0 0 5px 0 black;
-    }
-    #menu .container{
-        width: 275px;
-        display: flex;
+        top: 65px;
         flex-direction: column;
+        box-shadow: 0 1px 3px 1px #004c8c;
     }
-    #menu a{
+    .desplazar {
+        left: -300px;
+    }
+    #menu button {
         padding: 15px;
+        width: 275px;
     }
-
     main {
         margin-top: 65px;
     }
+    #botones{
+        flex-direction: column;
+    }
+    form .botones{
+        flex-direction: column;
+    }
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width:801px){
+    footer{
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (min-width:801px) and (max-width: 1440px) {
     #menu .container {
         display: flex;
         align-items: center;
     }
-    .container{
-        width: 80%;
+    .container {
         margin: 0 auto;
-    }
-    nav {
-        margin-top: 58px;
     }
     .hamburger {
         display: none;
     }
-    .container {
-        width: 80%;
+    main .container {
+        margin: 100px auto;
+        margin-bottom: 0px;
     }
+}
+
+@media screen and (min-width:801px) and (max-width: 1080px) {
+    .container{
+        width: 90%;
+    }
+}
+
+@media screen and (min-width:1081px) and (max-width:1440px){
+    .container{
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    #menu .container {
+        display: flex;
+        align-items: center;
+        width: 60%;
+    }
+    main .container {
+        margin: 100px auto;
+        margin-bottom: 0px;
+    }
+    .container {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .hamburger {
+        display: none;
+    }
+}
+
+#desplegable {
+    position: relative;
+}
+
+#desplegable [role="menuitem"] {
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 5px 0 gray;
+    width: 150px;
+    font-weight: 600;
+}
+
+#desplegable [role="menuitem"]:hover, #desplegable [role="menuitem"]:focus {
+    background-color: #79adcc
+}
+
+#submenu1, #submenu2, #submenu3 {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    display: none;
+}
+
+form input:not([type="checkbox"], [type="submit"], [type="reset"]) {
+    width: 100%;
+    padding: 10px;
+    font-size: medium;
+}
+
+form p{
+    margin: 30px 0;
+}
+
+form .botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+[type="submit"], [type="reset"], #botones button {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    padding: 15px 20px;
+    font-size: medium;
+    font-weight: 700;
+}
+
+[type="submit"]:hover, [type="reset"]:hover, [type="submit"]:focus, [type="reset"]:focus, #botones button:hover, #botones button:focus {
+    background-color: black;
+    color: white;
+}
+
+img{
+    margin: 30px 0;
+    box-shadow: 0 0 3px 0 black;
+}
+
+#botones{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+#botones *, .botones *{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
